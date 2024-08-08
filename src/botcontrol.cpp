@@ -44,8 +44,6 @@ void driver(){
   Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
   Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
 
-
-
     // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
     // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
 
@@ -208,13 +206,13 @@ if(con.ButtonR1.pressing()) {
     leftVolt *= scale;
     rightVolt *= scale;
     if (fabs(leftVolt) < 0.1){
-        leftmo.stop(brake);
+        leftmo.stop(coast);
     } 
     else{
         leftmo.spin(forward, leftVolt, volt);
     }
     if(fabs(rightVolt) < 0.1){
-        rightmo.stop(brake);
+        rightmo.stop(coast);
     }
     else{
         rightmo.spin(forward, rightVolt, volt);
