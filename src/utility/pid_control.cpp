@@ -2,7 +2,10 @@
 #include "main.h"
 
 PIDControl::PIDControl() {
-    kP = kI = kD = 0;
+    const double kP = 0.7;
+    const double kI = 0.0;
+    const double kD = 0.0;
+    //kP = kI = kD = 0;
     newError = sumError = deltaError = 0;
     prevError = 1e9;
     marginOfError = 5;
