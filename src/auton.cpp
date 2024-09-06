@@ -11,27 +11,27 @@ void close_qua(){
 
     // setHeading(270);
 
-    // driveAndTurn(-1.1, 0);
-    // clip.set(true);
+    driveAndTurn(-1.1, 0);
+    clip.set(true);
 
-    // inta.spin(reverse, 100, pct);
-    // turnToAngle(-106);
-    // driveAndTurn(1, -90);
-    // turnToAngle(60);
-    // intakeLift.set(true);
-    // inta.spin(reverse, 100, pct);
+    inta.spin(reverse, 80, pct);
+    turnToAngle(-106);
+    driveAndTurn(1, -90);
+    turnToAngle(60);
+    intakeLift.set(true);
+    inta.spin(reverse, 80, pct);
 
-    // driveAndTurn(2.1, 63, 80, 80);
-    // // driveAndTurn(1.7, 63, 80, 80);
-    // // driveAndTurn(0.4, 63);
-    // intakeLift.set(false);
-    // inta.spin(reverse, 100, pct);
-    // turnToAngle(150);
+    driveAndTurn(2.1, 63, 80, 80);
+    // driveAndTurn(1.7, 63, 80, 80);
+    // driveAndTurn(0.4, 63);
+    intakeLift.set(false);
+    inta.spin(reverse, 80, pct);
+    turnToAngle(150);
 
-    // driveAndTurn(0.7, 150);
-    // intakeLift.set(true);
-    // clip.set(false);
-    // inta.stop(brake);
+    driveAndTurn(0.7, 150);
+    intakeLift.set(true);
+    clip.set(false);
+    inta.stop(brake);
 
     ///////////////////////////////////////
 
@@ -40,7 +40,7 @@ void close_qua(){
     // setHeading(290);
     // driveAndTurn(-2.28, 0);
     // clip.set(true);
-    // inta.spin(reverse, 100, pct);
+    // inta.spin(reverse, 80, pct);
     // turnToAngle(-40);
     // driveAndTurn(0.46, 0);
     // clip.set(false);
@@ -55,7 +55,7 @@ void close_qua(){
     // inta.stop(brake);
     // driveAndTurn(0.9, 128);
     // clip.set(true);
-    // inta.spin(reverse, 100, pct);
+    // inta.spin(reverse, 80, pct);
 
     // driveAndTurn(0.7, 0); //change value
 
@@ -63,27 +63,27 @@ void close_qua(){
 
     //75% 5 pts POV blue
 
-    // setHeading(90);
+    setHeading(90);
 
-    // driveAndTurn(-1.1, 0);
-    // clip.set(true);
+    driveAndTurn(-1.1, 0);
+    clip.set(true);
 
-    // inta.spin(reverse, 100, pct);
-    // turnToAngle(106);
-    // driveAndTurn(1, 90);
-    // turnToAngle(-60);
-    // intakeLift.set(true);
-    // inta.spin(reverse, 100, pct);
+    inta.spin(reverse, 80, pct);
+    turnToAngle(106);
+    driveAndTurn(1, 90);
+    turnToAngle(-60);
+    intakeLift.set(true);
+    inta.spin(reverse, 80, pct);
 
-    // driveAndTurn(2.1, -63, 80, 80);
-    // intakeLift.set(false);
-    // inta.spin(reverse, 100, pct);
-    // turnToAngle(-150);
+    driveAndTurn(2.1, -63, 80, 80);
+    intakeLift.set(false);
+    inta.spin(reverse, 80, pct);
+    turnToAngle(-150);
 
-    // driveAndTurn(0.6, -150);
-    // intakeLift.set(true);
-    // clip.set(false);
-    // inta.stop(brake);
+    driveAndTurn(0.35, -150);
+    intakeLift.set(true);
+    clip.set(false);
+    inta.stop(brake);
 
     ///////////////////////////////////////
 
@@ -131,22 +131,23 @@ void close_qua(){
     driveAndTurn(-1.1, 0);
     clip.set(true);
 
-    inta.spin(reverse, 100, pct);
+    inta.spin(reverse, 80, pct);
     turnToAngle(148);
-    driveAndTurn(0.99, 150);
+    driveAndTurn(1, 150);
     turnToAngle(88, 100);
-    driveAndTurn(1, 88, 100, 100);
+    driveAndTurn(1, 90, 100, 100);
 
-    inta.spin(reverse, 100, pct);
+    inta.spin(reverse, 80, pct);
     driveAndTurn(-1.2, 110);
     
     turnToAngle(55);
-    inta.spin(reverse, 100, pct);
-    driveAndTurn(0.7, 60, 100, 100);
+    inta.spin(reverse, 80, pct);
+    driveAndTurn(0.7, 55, 100, 100);
 
-    // turnToAngle(-220);
-    // driveAndTurn(1, -220);
-    // intakeLift.set(true);
-    // clip.set(false);
-    // inta.stop(brake);
+    turnToAngle(-135);
+    clip.set(false);
+    intakeLift.set(true);
+    driveAndTurn(0.75, -130);
+    inta.stop(brake);
 }
+
