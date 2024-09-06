@@ -44,6 +44,8 @@ void driver(){
   Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
   Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
 
+
+
     // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
     // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
 
@@ -123,7 +125,7 @@ if(con.ButtonR1.pressing()) {
 
 /////////////////////////////////////////////////////////////////
 
-    //elevation button need to change
+
     // if(con.ButtonDown.pressing() == true)
     //   {
     //     x++;
@@ -136,13 +138,13 @@ if(con.ButtonR1.pressing()) {
     //   {
     //     if(push == 0)
     //     {
-    //       elevation.set(true);
+    //       clip.set(true);
     //       push = 1;
     //     }
     //     else if (push == 1)
     //     {
           
-    //       elevation.set(false);
+    //       clip.set(false);
           
     //       push = 0;
     //     }
@@ -162,12 +164,12 @@ if(con.ButtonR1.pressing()) {
         waitUntil(!con.ButtonA.pressing());
         if(push1 == 0)
         {
-          clip.set(true);
+          clamp.set(true);
           push1 = 1;
         }
         else if (push1 == 1)
         {
-          clip.set(false);
+          clamp.set(false);
           push1 = 0;
         }
       }
@@ -206,13 +208,13 @@ if(con.ButtonR1.pressing()) {
     leftVolt *= scale;
     rightVolt *= scale;
     if (fabs(leftVolt) < 0.1){
-        leftmo.stop(coast);
+        leftmo.stop(brake);
     } 
     else{
         leftmo.spin(forward, leftVolt, volt);
     }
     if(fabs(rightVolt) < 0.1){
-        rightmo.stop(coast);
+        rightmo.stop(brake);
     }
     else{
         rightmo.spin(forward, rightVolt, volt);
