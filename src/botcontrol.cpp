@@ -33,74 +33,79 @@ int curveJoystick(bool red, int input, double t){
   return val;
 }
 
-void driver(){
-  while(1){
+void intakeThread() {
+  while (1) {
     
-  Brain.Screen.printAt(180, 136, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
-  Brain.Screen.printAt(180, 156, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
-  Brain.Screen.printAt(180, 176, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
+    if(con.ButtonR1.pressing()) {
+        // Debounce button press
+        while(con.ButtonR1.pressing()) {
+            wait(10, msec);
+        }
 
-  Brain.Screen.printAt(180, 196, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
-  Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
-  Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
+        // Toggle reverse spinning state
+        if(intaReverse) {
+            inta.stop(brake);
+            intaReverse = false;
+        } else {
+            inta.spin(reverse, 80, pct);
+            intaReverse = true;
+            intaForward = false;  // Ensure forward spin is stopped
+        }
+    } else if(con.ButtonR2.pressing()) {
+        // Debounce button press
+        while(con.ButtonR2.pressing()) {
+            wait(10, msec);
+        }
 
-
-
-    // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
-    // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
-
-    // double turnVolts = turnVal * 0.12; //Converts to voltage
-    // double forwardVolts = forwardVal * 0.12; //Converts to voltage
-
-    // leftmo.spin(forward, forwardVolts + turnVolts, voltageUnits::volt); //Apply Via Voltage
-    // rightmo.spin(forward, forwardVolts - turnVolts, voltageUnits::volt);
-
-    // vex::task::sleep(20);
-
-    // if(con.ButtonL2.pressing()){
-    //   inta.spin(reverse, 100, pct);
-    //  } else if(con.ButtonL1.pressing()){
-    //    inta.spin(fwd, 100, pct);
-    // } else{
-    //   inta.stop(brake);
-    // }
-
-if(con.ButtonR1.pressing()) {
-    // Debounce button press
-    while(con.ButtonR1.pressing()) {
-        wait(10, msec);
-    }
-
-    // Toggle reverse spinning state
-    if(intaReverse) {
-        inta.stop(brake);
-        intaReverse = false;
+        // Toggle forward spinning state
+        if(intaForward) {
+            inta.stop(brake);
+            intaForward = false;
+        } else {
+            inta.spin(fwd, 80, pct);
+            intaForward = true;
+            intaReverse = false;  // Ensure reverse spin is stopped
+        }
     } else {
-        inta.spin(reverse, 100, pct);
-        intaReverse = true;
-        intaForward = false;  // Ensure forward spin is stopped
+        // Stop the intake motor if neither button is pressed
+        if(!intaForward && !intaReverse) {
+            inta.stop(brake);
+        }
     }
-} else if(con.ButtonR2.pressing()) {
-    // Debounce button press
-    while(con.ButtonR2.pressing()) {
-        wait(10, msec);
-    }
-
-    // Toggle forward spinning state
-    if(intaForward) {
-        inta.stop(brake);
-        intaForward = false;
-    } else {
-        inta.spin(fwd, 100, pct);
-        intaForward = true;
-        intaReverse = false;  // Ensure reverse spin is stopped
-    }
-} else {
-    // Stop the intake motor if neither button is pressed
-    if(!intaForward && !intaReverse) {
-        inta.stop(brake);
-    }
+    wait(10, msec);
+  }
 }
+
+void driver(){
+  task intakeTask([] () -> int { intakeThread(); return 1; });
+
+  while(1){
+    Brain.Screen.printAt(180, 136, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 156, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 176, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
+
+    Brain.Screen.printAt(180, 196, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
+
+      // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
+      // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
+
+      // double turnVolts = turnVal * 0.12; //Converts to voltage
+      // double forwardVolts = forwardVal * 0.12; //Converts to voltage
+
+      // leftmo.spin(forward, forwardVolts + turnVolts, voltageUnits::volt); //Apply Via Voltage
+      // rightmo.spin(forward, forwardVolts - turnVolts, voltageUnits::volt);
+
+      // vex::task::sleep(20);
+
+      // if(con.ButtonL2.pressing()){
+      //   inta.spin(reverse, 100, pct);
+      //  } else if(con.ButtonL1.pressing()){
+      //    inta.spin(fwd, 100, pct);
+      // } else{
+      //   inta.stop(brake);
+      // }
 
 
 
@@ -125,7 +130,7 @@ if(con.ButtonR1.pressing()) {
 
 /////////////////////////////////////////////////////////////////
 
-
+    //elevation button need to change
     // if(con.ButtonDown.pressing() == true)
     //   {
     //     x++;
@@ -138,13 +143,13 @@ if(con.ButtonR1.pressing()) {
     //   {
     //     if(push == 0)
     //     {
-    //       clip.set(true);
+    //       elevation.set(true);
     //       push = 1;
     //     }
     //     else if (push == 1)
     //     {
           
-    //       clip.set(false);
+    //       elevation.set(false);
           
     //       push = 0;
     //     }
@@ -164,12 +169,12 @@ if(con.ButtonR1.pressing()) {
         waitUntil(!con.ButtonA.pressing());
         if(push1 == 0)
         {
-          clamp.set(true);
+          clip.set(true);
           push1 = 1;
         }
         else if (push1 == 1)
         {
-          clamp.set(false);
+          clip.set(false);
           push1 = 0;
         }
       }
