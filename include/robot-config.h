@@ -16,7 +16,7 @@ extern motor r3;
 extern motor_group rightmo;
 extern motor inta;
 extern motor pner;
-extern digital_out clip;
+extern digital_out clamp;
 //extern digital_out hood;
 extern digital_out intakeLift;
 extern distance tim;
