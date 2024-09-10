@@ -179,5 +179,27 @@ void close_qua(){
     //clamp.set(false);
     turnToAngle(180);
     driveAndTurn(0.55, 180);
+
+/////////////////////////////////////
+    //Bot4 POV red Right wallstake
+
+        turnToAngle(15);
+        driveAndTurn(0.28, 15);
+        driveAndTurn(-1.2, 15);
+        turnToAngle(-30);
+        driveAndTurn(-0.5, -30);
+        clamp.set(true);
+        inta.spin(reverse, 100, pct);
+        turnToAngle(-120);
+        driveAndTurn(1.2, -120);
+        clamp.set(false);
+        turnToAngle(90);
+        driveAndTurn(-1.4, 90);
+        clamp.set(true);
+        turnToAngle(120);
+        inta.spin(reverse, 100, pct);
+        driveAndTurn(2, 120);
+
+/////////////////////////////////////
 }
 
