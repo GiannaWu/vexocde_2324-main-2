@@ -16,8 +16,9 @@ namespace auton {
         /*twenRY Operator A = (condition) ? (true data) : (false data)*/
     }
 
-
-   double sped = 0.06;
+    //the higher the value, the faster the robot will move forward/backward or turn 
+    //the lower the value, the robot will wiggle 
+   double sped = 0.075;
     void driveAndTurn(double tiles, double angle, double linearMaxVelocity, double turnMaxVelocity, double timeoutMs){
         // 23.5625
         double distanceDegree = tiles * (tileDistanceInch / 1.0) * (1.0 / (M_PI * baseWheelDiameter)) * (wheelGearTeeth / 1.0) * (1.0 / motorGearTeeth) * (360.0 / 1.0);
@@ -27,7 +28,7 @@ namespace auton {
         PIDControl drivePID(sped, 0, 0, 2);
         // PIDControl drivePID(0.06, 0, 0, 2);
         // PIDControl rotateToPID(0.47, 0, 0, 2);
-        PIDControl rotateToPID(0.30, 0.0, 0.05, 2);
+        PIDControl rotateToPID(0.45, 0.0, 0.05, 2);
         timer timeout;
         while(timeout.time(msec) <= timeoutMs && (!drivePID.reachedGoal() || !rotateToPID.reachedGoal())) {
             // Get linear velocity
@@ -81,6 +82,13 @@ namespace auton {
         leftmo.spin(fwd, leftPct, pct);
         rightmo.spin(fwd, rightPct, pct);
     }
+    // void driveVelocity(double leftPct, double rightPct, double leftRatio, double rightRatio){
+    //     double scale = 100.0 / fmax(100.0, fmax(fabs(leftPct), fabs(rightPct)));
+    //     leftPct = leftPct *scale*(leftRatio/fmax(leftRatio, rightRatio));
+    //     rightPct = rightPct *scale*(rightRatio/fmax(leftRatio, rightRatio));
+    //     leftmo.spin(fwd, leftPct, pct);
+    //     rightmo.spin(fwd, rightPct, pct);
+    // }
     void setHeading(int degree){
         bob.setHeading(degree, degrees);
     }
