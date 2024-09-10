@@ -11,27 +11,27 @@ void close_qua(){
 
     // setHeading(270);
 
-    driveAndTurn(-1.1, 0);
-    clip.set(true);
+    // driveAndTurn(-1.1, 0);
+    // clip.set(true);
 
-    inta.spin(reverse, 80, pct);
-    turnToAngle(-106);
-    driveAndTurn(1, -90);
-    turnToAngle(60);
-    intakeLift.set(true);
-    inta.spin(reverse, 80, pct);
+    // inta.spin(reverse, 80, pct);
+    // turnToAngle(-106);
+    // driveAndTurn(1, -90);
+    // turnToAngle(60);
+    // intakeLift.set(true);
+    // inta.spin(reverse, 80, pct);
 
-    driveAndTurn(2.1, 63, 80, 80);
-    // driveAndTurn(1.7, 63, 80, 80);
-    // driveAndTurn(0.4, 63);
-    intakeLift.set(false);
-    inta.spin(reverse, 80, pct);
-    turnToAngle(150);
+    // driveAndTurn(2.1, 63, 80, 80);
+    // // driveAndTurn(1.7, 63, 80, 80);
+    // // driveAndTurn(0.4, 63);
+    // intakeLift.set(false);
+    // inta.spin(reverse, 80, pct);
+    // turnToAngle(150);
 
-    driveAndTurn(0.7, 150);
-    intakeLift.set(true);
-    clip.set(false);
-    inta.stop(brake);
+    // driveAndTurn(0.7, 150);
+    // intakeLift.set(true);
+    // clip.set(false);
+    // inta.stop(brake);
 
     ///////////////////////////////////////
 
@@ -63,27 +63,27 @@ void close_qua(){
 
     //75% 5 pts POV blue
 
-    setHeading(90);
+    // setHeading(90);
 
-    driveAndTurn(-1.1, 0);
-    clip.set(true);
+    // driveAndTurn(-1.1, 0);
+    // clip.set(true);
 
-    inta.spin(reverse, 80, pct);
-    turnToAngle(106);
-    driveAndTurn(1, 90);
-    turnToAngle(-60);
-    intakeLift.set(true);
-    inta.spin(reverse, 80, pct);
+    // inta.spin(reverse, 80, pct);
+    // turnToAngle(106);
+    // driveAndTurn(1, 90);
+    // turnToAngle(-60);
+    // intakeLift.set(true);
+    // inta.spin(reverse, 80, pct);
 
-    driveAndTurn(2.1, -63, 80, 80);
-    intakeLift.set(false);
-    inta.spin(reverse, 80, pct);
-    turnToAngle(-150);
+    // driveAndTurn(2.1, -63, 80, 80);
+    // intakeLift.set(false);
+    // inta.spin(reverse, 80, pct);
+    // turnToAngle(-150);
 
-    driveAndTurn(0.35, -150);
-    intakeLift.set(true);
-    clip.set(false);
-    inta.stop(brake);
+    // driveAndTurn(0.35, -150);
+    // intakeLift.set(true);
+    // clip.set(false);
+    // inta.stop(brake);
 
     ///////////////////////////////////////
 
@@ -126,28 +126,58 @@ void close_qua(){
     //75% 6pts POV red 
     //write in far_qua later
 
-    setHeading(270);
+    // setHeading(270);
 
-    driveAndTurn(-1.1, 0);
-    clip.set(true);
+    // driveAndTurn(-1.1, 0);
+    // clip.set(true);
 
-    inta.spin(reverse, 80, pct);
-    turnToAngle(148);
-    driveAndTurn(1, 150);
-    turnToAngle(88, 100);
-    driveAndTurn(1, 90, 100, 100);
+    // inta.spin(reverse, 80, pct);
+    // turnToAngle(148);
+    // driveAndTurn(1, 150);
+    // turnToAngle(88, 100);
+    // driveAndTurn(1, 90, 100, 100);
 
-    inta.spin(reverse, 80, pct);
-    driveAndTurn(-1.2, 110);
+    // inta.spin(reverse, 80, pct);
+    // driveAndTurn(-1.2, 110);
     
-    turnToAngle(55);
-    inta.spin(reverse, 80, pct);
-    driveAndTurn(0.7, 55, 100, 100);
+    // turnToAngle(55);
+    // inta.spin(reverse, 80, pct);
+    // driveAndTurn(0.7, 55, 100, 100);
 
-    turnToAngle(-135);
-    clip.set(false);
+    // turnToAngle(-135);
+    // clip.set(false);
+    // intakeLift.set(true);
+    // driveAndTurn(0.75, -130);
+    // inta.stop(brake);
+
+    ///////////////////////////////////////
+
+    //robot 4 POV blue left side no wall
+    driveAndTurn(-1.8, 0);
+
+    turnToAngle(35);
+    driveAndTurn(-0.48, 35);
+    clamp.set(true);
+
+    inta.spin(reverse, 100, pct);
+    turnToAngle(-12);
+    driveAndTurn(0.60, 0);
+    //driveAndTurn(0.02, 0, 50, 50); // can delete later
+    //wait(200, msec);
+    clamp.set(false);
+    driveAndTurn(0.15, 0);
+
+    turnToAngle(90);
+    driveAndTurn(-0.9, 90, 80, 80);
+    clamp.set(true);
+
+    turnToAngle(-48);
     intakeLift.set(true);
-    driveAndTurn(0.75, -130);
-    inta.stop(brake);
+    inta.spin(reverse, 100, pct);
+    driveAndTurn(1.45, -48);
+
+    //clamp.set(false);
+    turnToAngle(180);
+    driveAndTurn(0.55, 180);
 }
 
