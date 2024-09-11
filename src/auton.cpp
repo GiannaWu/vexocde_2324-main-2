@@ -153,49 +153,55 @@ void close_qua(){
     ///////////////////////////////////////
 
     //robot 4 POV blue left side no wall
-    driveAndTurn(-1.8, 0);
+    // driveAndTurn(-1.8, 0);
 
-    turnToAngle(35);
-    driveAndTurn(-0.48, 35);
-    clamp.set(true);
+    // turnToAngle(35);
+    // driveAndTurn(-0.48, 35);
+    // clamp.set(true);
 
-    inta.spin(reverse, 100, pct);
-    turnToAngle(-12);
-    driveAndTurn(0.60, 0);
-    //driveAndTurn(0.02, 0, 50, 50); // can delete later
-    //wait(200, msec);
-    clamp.set(false);
-    driveAndTurn(0.15, 0);
+    // inta.spin(reverse, 100, pct);
+    // turnToAngle(-12);
+    // driveAndTurn(0.60, 0);
+    // //driveAndTurn(0.02, 0, 50, 50); // can delete later
+    // //wait(200, msec);
+    // clamp.set(false);
+    // driveAndTurn(0.15, 0);
 
-    turnToAngle(90);
-    driveAndTurn(-0.9, 90, 80, 80);
-    clamp.set(true);
+    // turnToAngle(90);
+    // driveAndTurn(-0.9, 90, 80, 80);
+    // clamp.set(true);
 
-    turnToAngle(-48);
-    intakeLift.set(true);
-    inta.spin(reverse, 100, pct);
-    driveAndTurn(1.45, -48);
+    // turnToAngle(-48);
+    // intakeLift.set(true);
+    // inta.spin(reverse, 100, pct);
+    // driveAndTurn(1.45, -48);
 
-    //clamp.set(false);
-    turnToAngle(180);
-    driveAndTurn(0.55, 180);
+    // //clamp.set(false);
+    // turnToAngle(180);
+    // driveAndTurn(0.55, 180);
 
 /////////////////////////////////////
-    //Bot4 POV red Right wallstake
+    
+    //robot 4 POV red right with wallstake
 
         turnToAngle(15);
         driveAndTurn(0.28, 15);
-        driveAndTurn(-1.2, 15);
-        turnToAngle(-30);
-        driveAndTurn(-0.5, -30);
+        driveAndTurn(-1, 15);
+        turnToAngle(-25);
+        driveAndTurn(-0.5, -25);
         clamp.set(true);
         inta.spin(reverse, 100, pct);
-        turnToAngle(-120);
-        driveAndTurn(1.2, -120);
+        turnToAngle(-125);
+        driveAndTurn(1.2, -125);
         clamp.set(false);
-        turnToAngle(-18);
-        driveAndTurn(-0.8, -20);
+        turnToAngle(-22);
+        driveAndTurn(-0.8, -22);
+        clamp.set(true);
+        turnToAngle(30);
+        // inta.spin(reverse, 100, pct);
+        //driveAndTurn(2, 30);
+        //turnToAngle(-45);
+        //driveAndTurn(-0.55, 0);
 
 /////////////////////////////////////
 }
-
