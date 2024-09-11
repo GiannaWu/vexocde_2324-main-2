@@ -28,7 +28,7 @@ namespace auton {
         PIDControl drivePID(sped, 0, 0, 2);
         // PIDControl drivePID(0.06, 0, 0, 2);
         // PIDControl rotateToPID(0.47, 0, 0, 2);
-        PIDControl rotateToPID(0.45, 0.0, 0.05, 2);
+        PIDControl rotateToPID(0.50, 0.0, 0.05, 2);
         timer timeout;
         while(timeout.time(msec) <= timeoutMs && (!drivePID.reachedGoal() || !rotateToPID.reachedGoal())) {
             // Get linear velocity
