@@ -193,12 +193,8 @@ void close_qua(){
         turnToAngle(-120);
         driveAndTurn(1.2, -120);
         clamp.set(false);
-        turnToAngle(90);
-        driveAndTurn(-1.4, 90);
-        clamp.set(true);
-        turnToAngle(120);
-        inta.spin(reverse, 100, pct);
-        driveAndTurn(2, 120);
+        turnToAngle(-18);
+        driveAndTurn(-0.8, -20);
 
 /////////////////////////////////////
 }
