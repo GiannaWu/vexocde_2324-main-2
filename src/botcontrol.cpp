@@ -155,7 +155,7 @@ void driver(){
     //     }
     //   }
 
-    //clip
+    //clamp
     if(con.ButtonA.pressing() == true)
       {
         y++;
@@ -169,17 +169,30 @@ void driver(){
         waitUntil(!con.ButtonA.pressing());
         if(push1 == 0)
         {
-          clip.set(true);
+          clamp.set(true);
           push1 = 1;
         }
         else if (push1 == 1)
         {
-          clip.set(false);
+          clamp.set(false);
           push1 = 0;
         }
       }
 
-      //intakeLift 
+    if(clamp.value() == true){
+        con.Screen.clearScreen();
+        con.Screen.setCursor(1,1);
+        con.Screen.print("************"); 
+        con.Screen.setCursor(2,1);
+        con.Screen.print("************");       
+        con.Screen.setCursor(3,1);
+        con.Screen.print("************");       
+    } else if(clamp.value() == false){
+      con.Screen.clearScreen();
+    }
+
+    }
+        //intakeLift 
       if(con.ButtonL2.pressing() == true)
       {
         y++;
@@ -230,4 +243,3 @@ void driver(){
 
     wait(20, msec);
   }
-}
