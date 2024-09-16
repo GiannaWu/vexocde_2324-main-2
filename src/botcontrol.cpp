@@ -88,6 +88,9 @@ void driver(){
     Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
     Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
 
+    Brain.Screen.printAt(180, 256, "Intake Temp: %.2f C", inta.temperature(temperatureUnits::celsius));
+
+
       // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
       // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
 
@@ -179,20 +182,7 @@ void driver(){
         }
       }
 
-    if(clamp.value() == true){
-        con.Screen.clearScreen();
-        con.Screen.setCursor(1,1);
-        con.Screen.print("************"); 
-        con.Screen.setCursor(2,1);
-        con.Screen.print("************");       
-        con.Screen.setCursor(3,1);
-        con.Screen.print("************");       
-    } else if(clamp.value() == false){
-      con.Screen.clearScreen();
-    }
-
-    }
-        //intakeLift 
+      //intakeLift 
       if(con.ButtonL2.pressing() == true)
       {
         y++;
@@ -243,3 +233,4 @@ void driver(){
 
     wait(20, msec);
   }
+}
