@@ -139,7 +139,7 @@ void close_qua(){
 
     // inta.spin(reverse, 80, pct);
     // driveAndTurn(-1.2, 110);
-    
+
     // turnToAngle(55);
     // inta.spin(reverse, 80, pct);
     // driveAndTurn(0.7, 55, 100, 100);
@@ -155,59 +155,57 @@ void close_qua(){
     //robot 4 POV blue left side no wall
     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
     
-    driveAndTurn(-1.8, 0); //can delete later
+    // driveAndTurn(-1.8, 0); //can delete later
 
-    turnToAngle(30);
-    driveAndTurn(-0.495, 35);
-    clamp.set(true);
+    // turnToAngle(30);
+    // driveAndTurn(-0.495, 35);
+    // clamp.set(true);
 
-    intamo.spin(reverse, 100, pct);
-    turnToAngle(-12);
-    driveAndTurn(0.60, 0);
-    driveAndTurn(0.02, 0, 50, 50); // can delete later
-    //wait(200, msec);
-    clamp.set(false);
-    driveAndTurn(0.15, 0);
+    // intamo.spin(reverse, 100, pct);
+    // turnToAngle(-12);
+    // driveAndTurn(0.60, 0);
+    // driveAndTurn(0.02, 0, 50, 50); // can delete later
+    // //wait(200, msec);
+    // clamp.set(false);
+    // driveAndTurn(0.15, 0);
+    // turnToAngle(90);
+    // driveAndTurn(-0.9, 90, 80, 80);
+    // clamp.set(true);
 
-    turnToAngle(90);
-    driveAndTurn(-0.9, 90, 80, 80);
-    clamp.set(true);
-
-    turnToAngle(-48);
-    intakeLift.set(true);
-    intamo.spin(reverse, 100, pct);
-    driveAndTurn(1.48, -48);
-
-    //clamp.set(false);
-    turnToAngle(180);
-    driveAndTurn(0.55, 180);
+    // turnToAngle(-48);
+    // intakeLift.set(true);
+    // intamo.spin(reverse, 100, pct);
+    // driveAndTurn(1.48, -48);
+    // //clamp.set(false);
+    // turnToAngle(180);
+    // driveAndTurn(0.55, 180);
 
 /////////////////////////////////////
-    
+
     //robot 4 POV red right with wallstake
 
-        // turnToAngle(15);
-        // driveAndTurn(0.28, 15);
-        // driveAndTurn(-1, 15);
-        // turnToAngle(-25);
-        // driveAndTurn(-0.5, -25);
-        // clamp.set(true);
+        turnToAngle(15);
+        driveAndTurn(0.28, 15);
+        driveAndTurn(-1, 15);
+        turnToAngle(-25);
+        driveAndTurn(-0.5, -25);
+        clamp.set(true);
+        intamo.spin(reverse, 100, pct);
+        turnToAngle(-125);
+        driveAndTurn(1.2, -125);
+        turnToAngle(90);
+        clamp.set(false);
+        wait(400, msec);
+        turnToAngle(-33);       
+        driveAndTurn(-0.8, -25);
+        clamp.set(true);
+        turnToAngle(30);
         // inta.spin(reverse, 100, pct);
-        // turnToAngle(-125);
-        // driveAndTurn(1.2, -125);
-        // clamp.set(false);
-        // turnToAngle(-22);
-        // driveAndTurn(-0.8, -22);
-        // clamp.set(true);
-        // turnToAngle(30);
-        // // inta.spin(reverse, 100, pct);
-        // driveAndTurn(2.6, 18);
-        // turnToAngle(-45);
-        // driveAndTurn(-0.3, -45);
+        driveAndTurn(2.6, 18);
+        turnToAngle(-45);
+        driveAndTurn(-0.4, -45);
 
 /////////////////////////////////////
-
     //robot 4 POV blue left side no wall    
-
     
 }
