@@ -35,6 +35,10 @@ int curveJoystick(bool red, int input, double t){
 
 void intakeThread() {
   while (1) {
+    if (isAutonRunning) {
+      wait(10, msec);
+      continue;
+    }
     
     if(con.ButtonR1.pressing()) {
         // Debounce button press
