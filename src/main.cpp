@@ -19,7 +19,10 @@ bool intawing = 0;
 int endX = originX + width;
 
 int autonoption = 0;
-    float deadband(float input, float width){
+
+bool isAutonRunning = false;
+
+float deadband(float input, float width){
   if (fabs(input)<width){
     return(0);
   }
@@ -56,9 +59,11 @@ void pre_auton(void) {
   }
 }
 
+
 void autonomous(void) {
-close_qua();
-// test();
+  isAutonRunning = true;
+  close_qua();
+  // test();
   Brain.Screen.clearScreen();
   Brain.Screen.setFillColor(red);
   Brain.Screen.printAt(((480/2)-36), (240/2), "Auton Start!");
@@ -70,6 +75,7 @@ close_qua();
 }
 
 void usercontrol(void) {
+  isAutonRunning = false;
   driver();
 
 }
