@@ -84,15 +84,15 @@ void driver(){
   task intakeTask([] () -> int { intakeThread(); return 1; });
 
   while(1){
-    Brain.Screen.printAt(180, 136, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 156, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 176, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 106, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 126, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 146, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
 
-    Brain.Screen.printAt(180, 196, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 166, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 186, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 206, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
 
-    Brain.Screen.printAt(180, 256, "Intake Temp: %.2f C", intamo.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 226, "Intake Temp: %.2f C", intamo.temperature(temperatureUnits::celsius));
 
       // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
       // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
