@@ -96,7 +96,7 @@ void red_left(){
 
 void blue_right(){
 
-    //robot 4 POV blue right side no wall    
+ //robot 4 POV blue right side no wall    
     
     driveAndTurn(-1.1, 0);
     clamp.set(true);
@@ -126,7 +126,7 @@ void blue_right(){
 
 void red_right(){
     //robot 4 POV red right side no wall
-    
+
 }
 
 /////////////////////////////////////
