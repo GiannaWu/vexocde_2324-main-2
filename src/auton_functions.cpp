@@ -59,6 +59,28 @@ namespace auton {
         leftmo.stop();
         rightmo.stop();
     }
+    void chasuturn(double leftPct, double rightPct, double angle, double timeoutMs){
+        PIDControl rotateToPID(0.35, 0.0, 0.05, 2);
+        // PIDControl rotateToPID();
+        timer timeout;
+        double errormax = angle - bob.rotation(degrees);       
+        while(timeout.time(msec) <= timeoutMs && !rotateToPID.reachedGoal()){
+            double error = angle - bob.rotation(degrees);
+
+            double errorScale = error/errormax;
+            rotateToPID.computeFromError(error);
+            //double newTurnVelocity = rotateToPID.getValue(); 
+            driveVelocity(leftPct * errorScale, rightPct * errorScale);
+            printf("error=%.1f |" , error ); 
+            printf(" imu=%.1f\n",bob.heading(degrees)); 
+        
+            task::sleep(20); 
+
+        }
+        printf(" endimu=%.1f\n",bob.heading(degrees)); 
+        leftmo.stop(hold);
+        rightmo.stop(hold);
+    }
     void turnToAngle(double angle, double MaxVelocity, double timeoutMs){
         PIDControl rotateToPID(0.35, 0.0, 0.05, 2);
         // PIDControl rotateToPID();
@@ -76,7 +98,8 @@ namespace auton {
         rightmo.stop();
     }
     void driveVelocity(double leftPct, double rightPct){
-        double scale = 100.0 / fmax(100.0, fmax(fabs(leftPct), fabs(rightPct)));
+        // double scale = 100.0 / fmax(100.0, fmax(fabs(leftPct), fabs(rightPct)));
+        double scale = 1;
         leftPct *= scale;
         rightPct *= scale;
         leftmo.spin(fwd, leftPct, pct);
