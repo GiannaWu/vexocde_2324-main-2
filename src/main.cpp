@@ -62,7 +62,7 @@ void pre_auton(void) {
 
 void autonomous(void) {
   isAutonRunning = true;
-  close_qua();
+  blue_left();
   // test();
   Brain.Screen.clearScreen();
   Brain.Screen.setFillColor(red);
@@ -72,6 +72,9 @@ void autonomous(void) {
   // } else if(autonoption == 1){
 
   // }
+  red_left();
+  blue_right();
+  red_right();
 }
 
 void usercontrol(void) {
