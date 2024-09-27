@@ -1,5 +1,6 @@
 #pragma once
 
-void close_qua();
-void far_qua();
-void test();
+void blue_left();
+void red_left();
+void blue_right();
+void red_right();
