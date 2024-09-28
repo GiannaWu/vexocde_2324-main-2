@@ -5,35 +5,70 @@
 using namespace vex;
 using namespace auton;
 
-// void blue_left(){
-//     //robot 4 POV blue left side no wall
+void blue_left(){
+    //robot 4 POV blue left side no wall
     
-//     driveAndTurn(-1.8, 0); //can delete later
+    driveAndTurn(-2, 0); //can delete later
 
-//     turnToAngle(30);
-//     driveAndTurn(-0.495, 35);
+    turnToAngle(23);
+    driveAndTurn(-1, 35);
+    clamp.set(true);
+
+    intamo.spin(reverse, 100, pct);
+    turnToAngle(-12);
+    driveAndTurn(0.60, 0);
+    driveAndTurn(0.02, 0, 50, 50); // can delete later
+    clamp.set(false);
+    driveAndTurn(0.25, 0);
+    turnToAngle(90);
+    driveAndTurn(-0.8, 90, 80, 80); //0.9
+    clamp.set(true);
+    wait(700, msec);
+
+    turnToAngle(-53);
+    intakeLift.set(true);
+    intamo.spin(reverse, 100, pct);
+    driveAndTurn(1.48, -48);
+    wait(500, msec);
+    intakeLift.set(false);
+
+    turnToAngle(180);
+    driveAndTurn(0.55, 180);
+}
+
+/////////////////////////////////////
+
+// void red_right(){
+// //     //robot 4 POV red left side no wall 
+// //     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
+    
+//     driveAndTurn(-1.9, 0); 
+
+//     turnToAngle(-30);
+//     driveAndTurn(-1, -35);
 //     clamp.set(true);
 
 //     intamo.spin(reverse, 100, pct);
-//     turnToAngle(-12);
+//     turnToAngle(12);
 //     driveAndTurn(0.60, 0);
 //     driveAndTurn(0.02, 0, 50, 50); // can delete later
-//     //wait(200, msec);
 //     clamp.set(false);
-//     driveAndTurn(0.15, 0);
-//     turnToAngle(90);
-//     driveAndTurn(-0.9, 90, 80, 80);
+//     driveAndTurn(0.25, 0);
+//     turnToAngle(-90);
+//     driveAndTurn(-1.1, -90, 80, 80);
 //     clamp.set(true);
+//     wait(500, msec);
 
-//     turnToAngle(-48);
+//     turnToAngle(48);
 //     intakeLift.set(true);
 //     intamo.spin(reverse, 100, pct);
-//     driveAndTurn(1.48, -48);
-//     //clamp.set(false);
-//     turnToAngle(180);
-//     driveAndTurn(0.55, 180);
+//     driveAndTurn(1.48, 48);
+//     intakeLift.set(false);
+//     wait(500, msec);
+//     turnToAngle(-190);
+//     driveAndTurn(0.65, -180); 
 
-// /////////////////////////////////////
+    ///////////////////////////////////////
 
 //     //robot 4 POV red right with wallstake
 
@@ -57,45 +92,11 @@ using namespace auton;
 //         // driveAndTurn(2.6, 18);
 //         // turnToAngle(-45);
 //         // driveAndTurn(-0.4, -45);
-// }
-
-// /////////////////////////////////////
-
-// void red_right(){
-
-//     //robot 4 POV red left side no wall 
-//     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
-    
-//     driveAndTurn(-1.8, 0); //can delete later
-
-//     turnToAngle(-35);
-//     driveAndTurn(-0.57, -35);
-//     clamp.set(true);
-
-//     intamo.spin(reverse, 100, pct);
-//     turnToAngle(12);
-//     driveAndTurn(0.60, 0);
-//     driveAndTurn(0.02, 0, 50, 50); // can delete later
-//     //wait(200, msec);
-//     clamp.set(false);
-//     driveAndTurn(0.15, 0);
-//     turnToAngle(-90);
-//     driveAndTurn(-0.9, -90, 80, 80);
-//     clamp.set(true);
-
-//     turnToAngle(48);
-//     intakeLift.set(true);
-//     intamo.spin(reverse, 100, pct);
-//     driveAndTurn(1.48, 48);
-//     //clamp.set(false);
-//     turnToAngle(-180);
-//     driveAndTurn(0.55, -180); 
-// }
+//}
 
 /////////////////////////////////////
 
 // void blue_right(){
-
 //     //robot 4 POV blue right side no wall    
     
 //     driveAndTurn(-1.2, 0);
@@ -120,30 +121,28 @@ using namespace auton;
 
 /////////////////////////////////////
 
-void red_left(){
+// void red_left(){
     //robot 4 POV red right side no wall
 
-    driveAndTurn(-1.2, 0);
-    clamp.set(true);
-    intamo.spin(reverse, 100, pct);
+    // driveAndTurn(-1.2, 0);
+    // clamp.set(true);
+    // intamo.spin(reverse, 100, pct);
     
-    turnToAngle(106);
-    driveAndTurn(1.15, 106);
+    // turnToAngle(106);
+    // driveAndTurn(1.15, 106);
 
-    turnToAngle(185);
-    driveAndTurn(0.65, 180);
-    driveAndTurn(-0.3, 140);  
-    driveAndTurn(0.59, 140);
-    driveAndTurn(-3, 140);
-    clamp.set(false);
-    wait(1000, msec);
-    clamp.set(true);
-    wait(500, msec);
-    turnToAngle(-90, 50);
-    driveAndTurn(3, -90);
-    
-    
-}
+    // turnToAngle(185);
+    // driveAndTurn(0.65, 180);
+    // driveAndTurn(-0.3, 140);  
+    // driveAndTurn(0.59, 140);
+    // driveAndTurn(-3, 140);
+    // clamp.set(false);
+    // wait(1000, msec);
+    // clamp.set(true);
+    // wait(500, msec);
+    // turnToAngle(-90, 50);
+    // driveAndTurn(3, -90);
+// }
 
 /////////////////////////////////////
 
@@ -290,6 +289,4 @@ void red_left(){
 //     // intakeLift.set(true);
 //     // driveAndTurn(0.75, -130);
 //     // inta.stop(brake);
-
-//     ///////////////////////////////////////
 // }
