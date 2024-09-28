@@ -61,7 +61,7 @@ using namespace auton;
 
 // /////////////////////////////////////
 
-// void red_left(){
+// void red_right(){
 
 //     //robot 4 POV red left side no wall 
 //     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
@@ -94,49 +94,56 @@ using namespace auton;
 
 /////////////////////////////////////
 
-void blue_right(){
+// void blue_right(){
 
-    //robot 4 POV blue right side no wall    
+//     //robot 4 POV blue right side no wall    
     
+//     driveAndTurn(-1.2, 0);
+//     clamp.set(true);
+//     intamo.spin(reverse, 100, pct);
+    
+//     turnToAngle(-106);
+//     driveAndTurn(1.15, -106);
+
+//     turnToAngle(-185);
+//     driveAndTurn(0.65, -180);
+//     driveAndTurn(-0.3, -140);  
+//     driveAndTurn(0.59, -140);
+//     driveAndTurn(-3, -140);
+//     clamp.set(false);
+//     wait(1000, msec);
+//     clamp.set(true);
+//     wait(500, msec);
+//     turnToAngle(90, 50);
+//     driveAndTurn(3, 90);
+// }
+
+/////////////////////////////////////
+
+void red_left(){
+    //robot 4 POV red right side no wall
+
     driveAndTurn(-1.2, 0);
     clamp.set(true);
     intamo.spin(reverse, 100, pct);
     
-    turnToAngle(-106);
-    driveAndTurn(1.15, -106);
+    turnToAngle(106);
+    driveAndTurn(1.15, 106);
 
-    turnToAngle(-185);
-    driveAndTurn(0.65, -180);
-    driveAndTurn(-0.3, -140);  
-    driveAndTurn(0.59, -140);
-    driveAndTurn(-3, -140);
+    turnToAngle(185);
+    driveAndTurn(0.65, 180);
+    driveAndTurn(-0.3, 140);  
+    driveAndTurn(0.59, 140);
+    driveAndTurn(-3, 140);
     clamp.set(false);
     wait(1000, msec);
     clamp.set(true);
     wait(500, msec);
-    turnToAngle(90, 50);
-    driveAndTurn(3, 90);
+    turnToAngle(-90, 50);
+    driveAndTurn(3, -90);
+    
+    
 }
-
-/////////////////////////////////////
-
-// void red_right(){
-//     //robot 4 POV red right side no wall
-
-//     driveAndTurn(-1.1, 0);
-//     clamp.set(true);
-//     intamo.spin(reverse, 100, pct);
-    
-//     turnToAngle(106);
-//     driveAndTurn(1, 106);
-
-//     turnToAngle(-50);
-//     driveAndTurn(-0.8, -50);
-
-//     turnToAngle(50);
-    
-    
-// }
 
 /////////////////////////////////////
 
