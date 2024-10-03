@@ -6,8 +6,7 @@ using namespace vex;
 using namespace auton;
 
 void auton_skills(){
-    setHeading(0);
-
+    
     //implement lift the arm
     driveAndTurn(0, 0);
     intamo.spin(fwd, 100, pct);
