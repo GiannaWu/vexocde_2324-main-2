@@ -10,8 +10,8 @@ void keybind(){
 }
 
 void intaout(){
-    inta.spin(fwd, 100, pct);
+    intamo.spin(fwd, 100, pct);
 }
 void intain(){
-    inta.spin(reverse, 100, pct);
+    intamo.spin(reverse, 100, pct);
 }
