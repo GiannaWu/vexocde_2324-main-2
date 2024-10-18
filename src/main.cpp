@@ -22,12 +22,12 @@ int autonoption = 0;
 
 bool isAutonRunning = false;
 
-float deadband(float input, float width){
-  if (fabs(input)<width){
-    return(0);
-  }
-  return(input);
-}
+// float deadband(float input, float width){
+//   if (fabs(input)<width){
+//     return(0);
+//   }
+//   return(input);
+// }
 
 void pre_auton(void) {
   vexcodeInit();
@@ -73,7 +73,7 @@ void autonomous(void) {
   // }
   // blue_left();
   // red_left();
-  blue_right();
+  // blue_right();
   // red_right();
 }
 
