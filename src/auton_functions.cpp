@@ -93,9 +93,9 @@ namespace auton {
         bob.setHeading(degree, degrees);
     }
     void suk(int speed){
-        inta.spin(reverse, speed, pct);
+        intamo.spin(reverse, speed, pct);
     }
     void unsuk(int speed){
-        inta.spin(fwd, speed, pct);
+        intamo.spin(fwd, speed, pct);
     }
 }
