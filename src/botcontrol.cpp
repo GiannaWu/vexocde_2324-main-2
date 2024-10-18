@@ -33,6 +33,13 @@ int curveJoystick(bool red, int input, double t){
   return val;
 }
 
+float deadband(float input, float width){
+  if(std::fabs(input)<width){
+    return(0);
+  }
+  return(input);
+}
+
 void intakeThread() {
   while (1) {
     if (isAutonRunning) {
@@ -84,15 +91,16 @@ void driver(){
   task intakeTask([] () -> int { intakeThread(); return 1; });
 
   while(1){
-    Brain.Screen.printAt(180, 136, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 156, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 176, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 96, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 116, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 136, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
 
-    Brain.Screen.printAt(180, 196, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 216, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 236, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 156, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 176, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 196, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
 
-    Brain.Screen.printAt(180, 256, "Intake Temp: %.2f C", intamo.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 76, "Inta1 Temp: %.2f C", inta1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(180, 56, "Inta2 Temp: %.2f C", inta2.temperature(temperatureUnits::celsius));
 
       // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
       // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
@@ -211,10 +219,12 @@ void driver(){
 
 /////////////////////////////////////////////////////////////////
 
-    double axis3 = con.Axis3.position(pct);
-    double axis1 = -con.Axis1.position(pct);
-    double leftVolt = axis3 - axis1;
-    double rightVolt = axis3 + axis1;
+    double axis3 = deadband(con.Axis3.position(pct),5);
+    double axis1 = deadband(con.Axis1.position(pct),5);
+    double turtle = curveJoystick(true, axis3, 15); //20
+    double rabbit = curveJoystick(true, axis1, 15);
+    double leftVolt = turtle + rabbit;
+    double rightVolt = turtle - rabbit;
     double scale = 12.0 / fmax(12.0, fmax(fabs(leftVolt), fabs(rightVolt)));
     leftVolt *= scale;
     rightVolt *= scale;
