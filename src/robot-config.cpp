@@ -26,6 +26,8 @@ digital_out clamp = digital_out(Brain.ThreeWirePort.A);
 //digital_out hood = digital_out(Brain.ThreeWirePort.D);
 digital_out intakeLift = digital_out(Brain.ThreeWirePort.H);
 distance tim = distance(PORT17);
+rotation ForwardTracker = rotation(PORT12, false);
+rotation SidewayTracker = rotation(PORT11, false);
 //vision bakchu = vision(PORT7);
 // VEXcode generated functions
 
