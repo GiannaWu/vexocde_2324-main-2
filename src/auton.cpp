@@ -34,6 +34,31 @@ void blue_left(){
 
     turnToAngle(180);
     driveAndTurn(0.55, 180);
+
+     ///////////////////////////////////////
+
+//     //robot 4 POV blue left with wallstake
+//         // turnToAngle(-15);
+//         // driveAndTurn(0.28, -15);
+//         // driveAndTurn(-1, -15);
+//         // turnToAngle(25);
+//         // driveAndTurn(-0.5, 25);
+//         // clamp.set(true);
+//         // intamo.spin(reverse, 100, pct);
+//         // turnToAngle(125);
+//         // driveAndTurn(1.2, 125);
+//         // turnToAngle(-90);
+//         // clamp.set(false);
+//         // wait(400, msec);
+//         // turnToAngle(33);       
+//         // driveAndTurn(-0.8, 25);
+//         // clamp.set(true);
+//         // turnToAngle(-30);
+//         // // intamo.spin(reverse, 100, pct);
+//         // driveAndTurn(2.6, -18);
+//         // turnToAngle(45);
+//         // driveAndTurn(-0.4, 45);
+
 }
 
 /////////////////////////////////////
@@ -117,6 +142,11 @@ void blue_left(){
 //     wait(500, msec);
 //     turnToAngle(90, 50);
 //     driveAndTurn(3, 90);
+
+ ///////////////////////////////////////
+
+//     //robot 4 POV blue right with wallstake
+
 // }
 
 /////////////////////////////////////
@@ -142,6 +172,11 @@ void blue_left(){
     // wait(500, msec);
     // turnToAngle(-90, 50);
     // driveAndTurn(3, -90);
+
+ ///////////////////////////////////////
+
+//     //robot 4 POV red left with wallstake
+
 // }
 
 /////////////////////////////////////
