@@ -5,61 +5,61 @@
 using namespace vex;
 using namespace auton;
 
-void blue_left(){
-    //robot 4 POV blue left side no wall
+// void blue_left(){
+//     //robot 4 POV blue left side no wall
     
-    driveAndTurn(-2, 0); //can delete later
+//     driveAndTurn(-2, 0); //can delete later
 
-    turnToAngle(23);
-    driveAndTurn(-1, 35);
-    clamp.set(true);
+//     turnToAngle(23);
+//     driveAndTurn(-1, 35);
+//     clamp.set(true);
 
-    intamo.spin(reverse, 100, pct);
-    turnToAngle(-12);
-    driveAndTurn(0.60, 0);
-    driveAndTurn(0.02, 0, 50, 50); // can delete later
-    clamp.set(false);
-    driveAndTurn(0.25, 0);
-    turnToAngle(90);
-    driveAndTurn(-0.8, 90, 80, 80); //0.9
-    clamp.set(true);
-    wait(700, msec);
+//     intamo.spin(reverse, 100, pct);
+//     turnToAngle(-12);
+//     driveAndTurn(0.60, 0);
+//     driveAndTurn(0.02, 0, 50, 50); // can delete later
+//     clamp.set(false);
+//     driveAndTurn(0.25, 0);
+//     turnToAngle(90);
+//     driveAndTurn(-0.8, 90, 80, 80); //0.9
+//     clamp.set(true);
+//     wait(700, msec);
 
-    turnToAngle(-53);
-    intakeLift.set(true);
-    intamo.spin(reverse, 100, pct);
-    driveAndTurn(1.48, -48);
-    wait(500, msec);
-    intakeLift.set(false);
+//     turnToAngle(-53);
+//     intakeLift.set(true);
+//     intamo.spin(reverse, 100, pct);
+//     driveAndTurn(1.48, -48);
+//     wait(500, msec);
+//     intakeLift.set(false);
 
-    turnToAngle(180);
-    driveAndTurn(0.55, 180);
+//     turnToAngle(180);
+//     driveAndTurn(0.55, 180);
 
-     ///////////////////////////////////////
+//      ///////////////////////////////////////
 
-//     //robot 4 POV blue left with wallstake
-//         // turnToAngle(-15);
-//         // driveAndTurn(0.28, -15);
-//         // driveAndTurn(-1, -15);
-//         // turnToAngle(25);
-//         // driveAndTurn(-0.5, 25);
-//         // clamp.set(true);
-//         // intamo.spin(reverse, 100, pct);
-//         // turnToAngle(125);
-//         // driveAndTurn(1.2, 125);
-//         // turnToAngle(-90);
-//         // clamp.set(false);
-//         // wait(400, msec);
-//         // turnToAngle(33);       
-//         // driveAndTurn(-0.8, 25);
-//         // clamp.set(true);
-//         // turnToAngle(-30);
-//         // // intamo.spin(reverse, 100, pct);
-//         // driveAndTurn(2.6, -18);
-//         // turnToAngle(45);
-//         // driveAndTurn(-0.4, 45);
+// //     //robot 4 POV blue left with wallstake
+// //         // turnToAngle(-15);
+// //         // driveAndTurn(0.28, -15);
+// //         // driveAndTurn(-1, -15);
+// //         // turnToAngle(25);
+// //         // driveAndTurn(-0.5, 25);
+// //         // clamp.set(true);
+// //         // intamo.spin(reverse, 100, pct);
+// //         // turnToAngle(125);
+// //         // driveAndTurn(1.2, 125);
+// //         // turnToAngle(-90);
+// //         // clamp.set(false);
+// //         // wait(400, msec);
+// //         // turnToAngle(33);       
+// //         // driveAndTurn(-0.8, 25);
+// //         // clamp.set(true);
+// //         // turnToAngle(-30);
+// //         // // intamo.spin(reverse, 100, pct);
+// //         // driveAndTurn(2.6, -18);
+// //         // turnToAngle(45);
+// //         // driveAndTurn(-0.4, 45);
 
-}
+// }
 
 /////////////////////////////////////
 
@@ -121,65 +121,112 @@ void blue_left(){
 
 /////////////////////////////////////
 
-// void blue_right(){
-//     //robot 4 POV blue right side no wall    
+void blue_right(){
+    //robot 4 POV blue right side no wall    
     
-//     driveAndTurn(-1.2, 0);
-//     clamp.set(true);
-//     intamo.spin(reverse, 100, pct);
-    
-//     turnToAngle(-106);
-//     driveAndTurn(1.15, -106);
-
-//     turnToAngle(-185);
-//     driveAndTurn(0.65, -180);
-//     driveAndTurn(-0.3, -140);  
-//     driveAndTurn(0.59, -140);
-//     driveAndTurn(-3, -140);
-//     clamp.set(false);
-//     wait(1000, msec);
-//     clamp.set(true);
-//     wait(500, msec);
-//     turnToAngle(90, 50);
-//     driveAndTurn(3, 90);
-
- ///////////////////////////////////////
-
-//     //robot 4 POV blue right with wallstake
-
-// }
-
-/////////////////////////////////////
-
-// void red_left(){
-    //robot 4 POV red right side no wall
-
-    // driveAndTurn(-1.2, 0);
-    // clamp.set(true);
+    driveAndTurn(-1.2, 0);
+    clamp.set(true);
     // intamo.spin(reverse, 100, pct);
     
-    // turnToAngle(106);
-    // driveAndTurn(1.15, 106);
+    // turnToAngle(-106);
+    // driveAndTurn(1.15, -106);
 
-    // turnToAngle(185);
-    // driveAndTurn(0.65, 180);
-    // driveAndTurn(-0.3, 140);  
-    // driveAndTurn(0.59, 140);
-    // driveAndTurn(-3, 140);
+    // turnToAngle(-185);
+    // driveAndTurn(0.65, -180);
+    // driveAndTurn(-0.3, -140);  
+    // driveAndTurn(0.59, -140);
+    // driveAndTurn(-3, -140);
     // clamp.set(false);
     // wait(1000, msec);
     // clamp.set(true);
     // wait(500, msec);
-    // turnToAngle(-90, 50);
-    // driveAndTurn(3, -90);
+    // turnToAngle(90, 50);
+    // driveAndTurn(3, 90);
 
- ///////////////////////////////////////
+ /////////////////////////////////////
 
-//     //robot 4 POV red left with wallstake
-
-// }
+    //robot 4 POV blue right with wallstake
+    turnToAngle(0);
+    driveAndTurn(0, 0);
+    //implement put down the ring
+    driveAndTurn(-0, 0);
+    turnToAngle(-0);
+    driveAndTurn(0, 0);
+    driveAndTurn(-0, 0);
+    turnToAngle(0);
+    driveAndTurn(-0, 0);
+    clamp.set(true);
+    turnToAngle(0);
+    driveAndTurn(0, 0);
+    driveAndTurn(-0, 0);
+    turnToAngle(-0);
+    driveAndTurn(0, 0);
+    driveAndTurn(-0, 0);
+    turnToAngle(-0);
+    driveAndTurn(0, 0);
+    turnToAngle(-0);
+    driveAndTurn(-0, 0);
+}
 
 /////////////////////////////////////
+
+// void red_left(){
+//     // robot 4 POV red right side no wall
+
+//     driveAndTurn(-1.2, 0);
+//     clamp.set(true);
+//     // intamo.spin(reverse, 100, pct);
+    
+//     // turnToAngle(106);
+//     // driveAndTurn(1.15, 106);
+
+//     // turnToAngle(185);
+//     // driveAndTurn(0.65, 180);
+//     // driveAndTurn(-0.3, 140);  
+//     // driveAndTurn(0.59, 140);
+//     // driveAndTurn(-3, 140);
+//     // clamp.set(false);
+//     // wait(1000, msec);
+//     // clamp.set(true);
+//     // wait(500, msec);
+//     // turnToAngle(-90, 50);
+//     // driveAndTurn(3, -90);
+
+//  /////////////////////////////////////
+
+//     //robot 4 POV red left with wallstake
+//     turnToAngle(0);
+//     driveAndTurn(0, 0);
+//     //implement put down the ring
+//     driveAndTurn(-0, 0);
+//     turnToAngle(-0);
+//     driveAndTurn(0, 0);
+//     driveAndTurn(-0, 0);
+//     turnToAngle(0);
+//     driveAndTurn(-0, 0);
+//     clamp.set(true);
+//     turnToAngle(0);
+//     driveAndTurn(0, 0);
+//     driveAndTurn(-0, 0);
+//     turnToAngle(-0);
+//     driveAndTurn(0, 0);
+//     driveAndTurn(-0, 0);
+//     turnToAngle(-0);
+//     driveAndTurn(0, 0);
+//     turnToAngle(-0);
+//     driveAndTurn(-0, 0);
+// }
+
+
+
+
+
+/////////////////////////////////////
+
+
+
+
+
 
 // void other(){
 //     //75% 5 pts POV red
