@@ -14,6 +14,9 @@ int x = 1;
 int push = 0;
 int y = 1;
 int push1 = 0;
+// int z = 1;
+// int push2 = 0;
+// bool buttonReleased = false;
 bool turningRed = false;
 
 int forwardCurve = 10;
@@ -58,7 +61,7 @@ void intakeThread() {
             intamo.stop(brake);
             intaReverse = false;
         } else {
-            intamo.spin(reverse, 80, pct);
+            intamo.spin(reverse, 100, pct);
             intaReverse = true;
             intaForward = false;  // Ensure forward spin is stopped
         }
@@ -73,7 +76,7 @@ void intakeThread() {
             intamo.stop(brake);
             intaForward = false;
         } else {
-            intamo.spin(fwd, 80, pct);
+            intamo.spin(fwd, 100, pct);
             intaForward = true;
             intaReverse = false;  // Ensure reverse spin is stopped
         }
@@ -134,13 +137,37 @@ void driver(){
 /////////////////////////////////////////////////////////////////
 
     //distance sensor
-    /*double distance = tim.objectDistance(mm);
-    if(distance < 10){
-      hood.set(false);
-    } else{
-      hood.set(true);
-    }*/
-   
+    // double distance = tim.objectDistance(mm);
+    // while (true) {
+    //     double distance = tim.objectDistance(mm);
+        
+    //     // Check if Button X is pressed
+    //     if(con.ButtonX.pressing() && buttonReleased == false) {
+    //         z++;
+    //         waitUntil(!con.ButtonX.pressing());  
+    //         buttonReleased = true;
+    //     } else if (!con.ButtonX.pressing()) {
+    //         z = 0;  
+    //         buttonReleased = false;
+    //     }
+
+    //     if(z == 1) {
+    //         if(push2 == 0 && distance < 10) {
+    //             // If distance is less than 10 mm, spin the motor forward
+    //             intamo.spin(fwd, 100, pct);
+    //             intaReverse = false;
+    //             intaForward = true;
+    //             push2 = 1;
+    //         } else if(push2 == 1 && distance >= 10) {
+    //             // If distance is greater than or equal to 10 mm, reverse the motor
+    //             intamo.spin(reverse, 100, pct);
+    //             push2 = 0;
+    //         }
+    //     }
+
+    //     // Small delay to avoid overwhelming the system
+    //     wait(20, msec);
+    // }
 
 /////////////////////////////////////////////////////////////////
 
@@ -168,6 +195,28 @@ void driver(){
     //       push = 0;
     //     }
     //   }
+    if(con.ButtonB.pressing() == true)
+      {
+        x++;
+      }
+    else
+      {
+        x = 0 ;
+      }
+    if(x == 1)
+      {
+        waitUntil(!con.ButtonB.pressing());
+        if(push == 0)
+        {
+          elevation.set(true);
+          push = 1;
+        }
+        else if (push1 == 1)
+        {
+          elevation.set(false);
+          push = 0;
+        }
+      }
 
     //clamp
     if(con.ButtonA.pressing() == true)
@@ -221,8 +270,8 @@ void driver(){
 
     double axis3 = deadband(con.Axis3.position(pct),5);
     double axis1 = deadband(con.Axis1.position(pct),5);
-    double turtle = curveJoystick(true, axis3, 15); //20
-    double rabbit = curveJoystick(true, axis1, 15);
+    double turtle = curveJoystick(true, axis3, 0); //20
+    double rabbit = curveJoystick(true, axis1, 0);
     double leftVolt = turtle + rabbit;
     double rightVolt = turtle - rabbit;
     double scale = 12.0 / fmax(12.0, fmax(fabs(leftVolt), fabs(rightVolt)));
