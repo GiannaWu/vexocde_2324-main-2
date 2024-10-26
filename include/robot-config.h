@@ -19,6 +19,7 @@ extern motor inta2;
 extern motor_group intamo;
 extern motor pner;
 extern digital_out clamp;
+extern digital_out elevation;
 //extern digital_out hood;
 extern digital_out intakeLift;
 extern distance tim;
