@@ -1,6 +1,7 @@
 #include "botcontrol.h"
 #include "main.h"
 #include "robot-config.h"
+#include "odom.h"
 using namespace vex;
 
   // if (fabs(input)<width){
@@ -14,9 +15,9 @@ int x = 1;
 int push = 0;
 int y = 1;
 int push1 = 0;
-// int z = 1;
-// int push2 = 0;
-// bool buttonReleased = false;
+int z = 1;
+int push2 = 0;
+bool buttonReleased = false;
 bool turningRed = false;
 
 int forwardCurve = 10;
@@ -90,20 +91,33 @@ void intakeThread() {
   }
 }
 
+
 void driver(){
   task intakeTask([] () -> int { intakeThread(); return 1; });
-
+  set_position(0,0,0,0,0);
+  // set_physical_distances()
+  ForwardTracker.setPosition(0,degrees);
+  SidewayTracker.setPosition(0,degrees);
   while(1){
-    Brain.Screen.printAt(180, 96, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 116, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 136, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
+    Brain.Screen.clearScreen();
+    update_position(ForwardTracker.position(degrees),SidewayTracker.position(degrees),bob.heading());
+    Brain.Screen.printAt(10, 96, "L1 Temp: %.2f C", l1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 116, "L2 Temp: %.2f C", l2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 136, "L3 Temp: %.2f C", l3.temperature(temperatureUnits::celsius));
 
-    Brain.Screen.printAt(180, 156, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 176, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 196, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 156, "R1 Temp: %.2f C", r1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 176, "R2 Temp: %.2f C", r2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 196, "R3 Temp: %.2f C", r3.temperature(temperatureUnits::celsius));
 
-    Brain.Screen.printAt(180, 76, "Inta1 Temp: %.2f C", inta1.temperature(temperatureUnits::celsius));
-    Brain.Screen.printAt(180, 56, "Inta2 Temp: %.2f C", inta2.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 76, "Inta1 Temp: %.2f C", inta1.temperature(temperatureUnits::celsius));
+    Brain.Screen.printAt(10, 56, "Inta2 Temp: %.2f C", inta2.temperature(temperatureUnits::celsius));
+
+    Brain.Screen.printAt(10, 36, "X: %.1f", X_position * 2.54);
+    Brain.Screen.printAt(10, 16, "Y: %.1f", Y_position * 2.54);   
+    Brain.Screen.printAt(10, 216, "Heading: %.1f", bob.heading());
+    Brain.Screen.printAt(220, 16, "sideway: %.1f", SidewayTracker.position(degrees));
+    Brain.Screen.printAt(220, 36, "Fwdway: %.1f", ForwardTracker.position(degrees));
+    Brain.Screen.printAt(220, 56, "Distance: %.1f", tim.objectDistance(mm));
 
       // double turnVal = curveJoystick(false, con.Axis1.position(percent), turningCurve); //Get curvature according to settings [-100,100]
       // double forwardVal = curveJoystick(false, con.Axis3.position(percent), forwardCurve); //Get curvature according to settings [-100,100]
@@ -139,7 +153,7 @@ void driver(){
     //distance sensor
     // double distance = tim.objectDistance(mm);
     // while (true) {
-    //     double distance = tim.objectDistance(mm);
+    //     // double distance = tim.objectDistance(mm);
         
     //     // Check if Button X is pressed
     //     if(con.ButtonX.pressing() && buttonReleased == false) {
@@ -152,11 +166,11 @@ void driver(){
     //     }
 
     //     if(z == 1) {
-    //         if(push2 == 0 && distance < 10) {
+    //         if(push2 == 0 && distance < 70) {
     //             // If distance is less than 10 mm, spin the motor forward
-    //             intamo.spin(fwd, 100, pct);
-    //             intaReverse = false;
-    //             intaForward = true;
+    //             intamo.stop(brake);
+    //             // intaReverse = false;
+    //             // intaForward = true;
     //             push2 = 1;
     //         } else if(push2 == 1 && distance >= 10) {
     //             // If distance is greater than or equal to 10 mm, reverse the motor
@@ -195,28 +209,28 @@ void driver(){
     //       push = 0;
     //     }
     //   }
-    if(con.ButtonB.pressing() == true)
-      {
-        x++;
-      }
-    else
-      {
-        x = 0 ;
-      }
-    if(x == 1)
-      {
-        waitUntil(!con.ButtonB.pressing());
-        if(push == 0)
-        {
-          elevation.set(true);
-          push = 1;
-        }
-        else if (push1 == 1)
-        {
-          elevation.set(false);
-          push = 0;
-        }
-      }
+    // if(con.ButtonB.pressing() == true)
+    //   {
+    //     x++;
+    //   }
+    // else
+    //   {
+    //     x = 0 ;
+    //   }
+    // if(x == 1)
+    //   {
+    //     waitUntil(!con.ButtonB.pressing());
+    //     if(push == 0)
+    //     {
+    //       elevation.set(true);
+    //       push = 1;
+    //     }
+    //     else if (push1 == 1)
+    //     {
+    //       elevation.set(false);
+    //       push = 0;
+    //     }
+    //   }
 
     //clamp
     if(con.ButtonA.pressing() == true)
