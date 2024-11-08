@@ -151,9 +151,8 @@ void driver(){
 /////////////////////////////////////////////////////////////////
 
     // distance sensor
-    double distance = tim.objectDistance(mm);
     while (true) {
-        // double distance = tim.objectDistance(mm);
+        double distance = tim.objectDistance(mm);
         
         // Check if Button X is pressed
         if(con.ButtonX.pressing() && buttonReleased == false) {
@@ -172,7 +171,7 @@ void driver(){
                 // intaReverse = false;
                 // intaForward = true;
                 push2 = 1;
-            } else if(push2 == 1 && distance >= 10) {
+            } else if(push2 == 1 && distance >= 70) {
                 // If distance is greater than or equal to 10 mm, reverse the motor
                 intamo.spin(reverse, 100, pct);
                 push2 = 0;
