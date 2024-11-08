@@ -1,11 +1,16 @@
+#ifndef ODOM_H 
+#define ODOM_H
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <cmath>
 
+// #include "odom.h"
+
 #include "v5.h"
 #include "v5_vcs.h"
+
 
 
 #define waitUntil(condition)                                                   \
@@ -15,3 +20,5 @@
 
 #define repeat(iterations)                                                     \
   for (int iterator = 0; iterator < iterations; iterator++)
+
+#endif
