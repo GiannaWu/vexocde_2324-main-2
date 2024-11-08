@@ -150,38 +150,38 @@ void driver(){
 
 /////////////////////////////////////////////////////////////////
 
-    //distance sensor
-    // double distance = tim.objectDistance(mm);
-    // while (true) {
-    //     // double distance = tim.objectDistance(mm);
+    // distance sensor
+    double distance = tim.objectDistance(mm);
+    while (true) {
+        // double distance = tim.objectDistance(mm);
         
-    //     // Check if Button X is pressed
-    //     if(con.ButtonX.pressing() && buttonReleased == false) {
-    //         z++;
-    //         waitUntil(!con.ButtonX.pressing());  
-    //         buttonReleased = true;
-    //     } else if (!con.ButtonX.pressing()) {
-    //         z = 0;  
-    //         buttonReleased = false;
-    //     }
+        // Check if Button X is pressed
+        if(con.ButtonX.pressing() && buttonReleased == false) {
+            z++;
+            waitUntil(!con.ButtonX.pressing());  
+            buttonReleased = true;
+        } else if (!con.ButtonX.pressing()) {
+            z = 0;  
+            buttonReleased = false;
+        }
 
-    //     if(z == 1) {
-    //         if(push2 == 0 && distance < 70) {
-    //             // If distance is less than 10 mm, spin the motor forward
-    //             intamo.stop(brake);
-    //             // intaReverse = false;
-    //             // intaForward = true;
-    //             push2 = 1;
-    //         } else if(push2 == 1 && distance >= 10) {
-    //             // If distance is greater than or equal to 10 mm, reverse the motor
-    //             intamo.spin(reverse, 100, pct);
-    //             push2 = 0;
-    //         }
-    //     }
+        if(z == 1) {
+            if(push2 == 0 && distance < 70) {
+                // If distance is less than 10 mm, spin the motor forward
+                intamo.stop(brake);
+                // intaReverse = false;
+                // intaForward = true;
+                push2 = 1;
+            } else if(push2 == 1 && distance >= 10) {
+                // If distance is greater than or equal to 10 mm, reverse the motor
+                intamo.spin(reverse, 100, pct);
+                push2 = 0;
+            }
+        }
 
-    //     // Small delay to avoid overwhelming the system
-    //     wait(20, msec);
-    // }
+        // Small delay to avoid overwhelming the system
+        wait(20, msec);
+    
 
 /////////////////////////////////////////////////////////////////
 
@@ -308,5 +308,6 @@ void driver(){
 
 
     wait(20, msec);
+  }
   }
 }
