@@ -11,12 +11,16 @@ using namespace vex;
 int pxpos = 480/2;
 int pypos = 240/2;
 int turningCurve = 5;
-int x = 1;
+int x = 1; //elevation
 int push = 0;
-int y = 1;
+int y = 1; //clamp
 int push1 = 0;
 int z = 1;
 int push2 = 0;
+int a = 1; //intakelift
+int push3 = 0;
+int b = 1; //doinker
+int push4 = 0;
 bool buttonReleased = false;
 bool turningRed = false;
 
@@ -59,10 +63,12 @@ void intakeThread() {
 
         // Toggle reverse spinning state
         if(intaReverse) {
-            intamo.stop(brake);
+            inta1.stop(brake);
+            inta2.stop(brake);
             intaReverse = false;
         } else {
-            intamo.spin(reverse, 100, pct);
+            inta1.spin(reverse, 70, pct);
+            inta2.spin(reverse, 100, pct);
             intaReverse = true;
             intaForward = false;  // Ensure forward spin is stopped
         }
@@ -74,17 +80,20 @@ void intakeThread() {
 
         // Toggle forward spinning state
         if(intaForward) {
-            intamo.stop(brake);
+            inta1.stop(brake);
+            inta2.stop(brake);
             intaForward = false;
         } else {
-            intamo.spin(fwd, 100, pct);
+            inta1.spin(fwd, 70, pct);
+            inta2.spin(fwd, 100, pct);
             intaForward = true;
             intaReverse = false;  // Ensure reverse spin is stopped
         }
     } else {
         // Stop the intake motor if neither button is pressed
         if(!intaForward && !intaReverse) {
-            intamo.stop(brake);
+            inta1.stop(brake);
+            inta2.stop(brake);
         }
     }
     wait(10, msec);
@@ -151,37 +160,55 @@ void driver(){
 /////////////////////////////////////////////////////////////////
 
     // distance sensor
-    while (true) {
-        double distance = tim.objectDistance(mm);
+        // double distance = tim.objectDistance(mm);
         
-        // Check if Button X is pressed
-        if(con.ButtonX.pressing() && buttonReleased == false) {
-            z++;
-            waitUntil(!con.ButtonX.pressing());  
-            buttonReleased = true;
-        } else if (!con.ButtonX.pressing()) {
-            z = 0;  
-            buttonReleased = false;
+        // // Check if Button X is pressed
+        // if(con.ButtonX.pressing() && buttonReleased == false) {
+        //     z++;
+        //     waitUntil(!con.ButtonX.pressing());  
+        //     buttonReleased = true;
+        // } else if (!con.ButtonX.pressing()) {
+        //     z = 0;  
+        //     buttonReleased = false;
+        // }
+        // // if(con.ButtonX.pressing() == true){
+        // //   z++;
+        // // } else {
+        // //   z = 0;
+        // // }
+
+        // if(z == 1) {
+        //     if(push2 == 0 && distance < 300) {
+        //         // If distance is less than 10 mm, spin the motor forward
+        //         inta1.stop(brake);
+        //         inta2.stop(brake);
+        //         // intaReverse = false;
+        //         // intaForward = true;
+        //         push2 = 1;
+        //     } else if(push2 == 1 && distance >= 300) {
+        //         // If distance is greater than or equal to 10 mm, reverse the motor
+        //         inta1.spin(reverse, 100, pct);
+        //         inta2.spin(reverse, 100, pct);
+        //         push2 = 0;
+        //     }
+        // }
+
+         if(con.ButtonY.pressing() == true){
+          z++;
+        } else {
+          z = 0;
         }
 
-        if(z == 1) {
-            if(push2 == 0 && distance < 70) {
-                // If distance is less than 10 mm, spin the motor forward
-                intamo.stop(brake);
-                // intaReverse = false;
-                // intaForward = true;
-                push2 = 1;
-            } else if(push2 == 1 && distance >= 70) {
-                // If distance is greater than or equal to 10 mm, reverse the motor
-                intamo.spin(reverse, 100, pct);
-                push2 = 0;
-            }
+        if (z == 1) {
+          waitUntil(!con.ButtonY.pressing());
+          if (push2 == 0){
+            inta1.stop(brake);
+            push2 = 1;
+          } else if (push2 == 1){
+            inta1.spin(reverse, 100, pct);
+            push2 = 0;
+          }
         }
-
-        // Small delay to avoid overwhelming the system
-        wait(20, msec);
-    
-
 /////////////////////////////////////////////////////////////////
 
     //elevation button need to change
@@ -255,27 +282,75 @@ void driver(){
         }
       }
 
-      //intakeLift 
-      if(con.ButtonL2.pressing() == true)
+    //clamp another button
+    if(con.ButtonB.pressing() == true)
       {
         y++;
       }
-      else
+    else
       {
         y = 0 ;
       }
-      if(y == 1)
+    if(y == 1)
       {
-        waitUntil(!con.ButtonL2.pressing());
+        waitUntil(!con.ButtonB.pressing());
         if(push1 == 0)
         {
-          intakeLift.set(true);
+          clamp.set(true);
           push1 = 1;
         }
         else if (push1 == 1)
         {
-          intakeLift.set(false);
+          clamp.set(false);
           push1 = 0;
+        }
+      }
+
+      //intakeLift 
+      if(con.ButtonL2.pressing() == true)
+      {
+        a++;
+      }
+      else
+      {
+        a = 0 ;
+      }
+      if(a == 1)
+      {
+        waitUntil(!con.ButtonL2.pressing());
+        if(push3 == 0)
+        {
+          intakeLift.set(true);
+          push3 = 1;
+        }
+        else if (push3 == 1)
+        {
+          intakeLift.set(false);
+          push3 = 0;
+        }
+      }
+
+      //doinker  
+      if(con.ButtonRight.pressing() == true)
+      {
+        b++;
+      }
+      else
+      {
+        b = 0 ;
+      }
+      if(b == 1)
+      {
+        waitUntil(!con.ButtonRight.pressing());
+        if(push4 == 0)
+        {
+          doinker.set(true);
+          push4 = 1;
+        }
+        else if (push4 == 1)
+        {
+          doinker.set(false);
+          push4 = 0;
         }
       }
 
@@ -283,8 +358,8 @@ void driver(){
 
     double axis3 = deadband(con.Axis3.position(pct),5);
     double axis1 = deadband(con.Axis1.position(pct),5);
-    double turtle = curveJoystick(true, axis3, 0); //20
-    double rabbit = curveJoystick(true, axis1, 0);
+    double turtle = curveJoystick(true, axis3, 10); //20
+    double rabbit = curveJoystick(true, axis1, 10);
     double leftVolt = turtle + rabbit;
     double rightVolt = turtle - rabbit;
     double scale = 12.0 / fmax(12.0, fmax(fabs(leftVolt), fabs(rightVolt)));
@@ -307,6 +382,5 @@ void driver(){
 
 
     wait(20, msec);
-  }
   }
 }
