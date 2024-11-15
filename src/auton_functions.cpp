@@ -18,7 +18,7 @@ namespace auton {
 
     //the higher the value, the faster the robot will move forward/backward or turn 
     //the lower the value, the robot will wiggle 
-   double sped = 0.075;
+   double sped = 0.063;
     void driveAndTurn(double tiles, double angle, double linearMaxVelocity, double turnMaxVelocity, double timeoutMs){
         // 23.5625
         double distanceDegree = tiles * (tileDistanceInch / 1.0) * (1.0 / (M_PI * baseWheelDiameter)) * (wheelGearTeeth / 1.0) * (1.0 / motorGearTeeth) * (360.0 / 1.0);
@@ -59,6 +59,28 @@ namespace auton {
         leftmo.stop();
         rightmo.stop();
     }
+    void chasuturn(double leftPct, double rightPct, double angle, double timeoutMs){
+        PIDControl rotateToPID(0.35, 0.0, 0.05, 2);
+        // PIDControl rotateToPID();
+        timer timeout;
+        double errormax = angle - bob.rotation(degrees);       
+        while(timeout.time(msec) <= timeoutMs && !rotateToPID.reachedGoal()){
+            double error = angle - bob.rotation(degrees);
+
+            double errorScale = error/errormax;
+            rotateToPID.computeFromError(error);
+            //double newTurnVelocity = rotateToPID.getValue(); 
+            driveVelocity(leftPct * errorScale, rightPct * errorScale);
+            printf("error=%.1f |" , error ); 
+            printf(" imu=%.1f\n",bob.heading(degrees)); 
+        
+            task::sleep(20); 
+
+        }
+        printf(" endimu=%.1f\n",bob.heading(degrees)); 
+        leftmo.stop(hold);
+        rightmo.stop(hold);
+    }
     void turnToAngle(double angle, double MaxVelocity, double timeoutMs){
         PIDControl rotateToPID(0.35, 0.0, 0.05, 2);
         // PIDControl rotateToPID();
@@ -93,9 +115,11 @@ namespace auton {
         bob.setHeading(degree, degrees);
     }
     void suk(int speed){
-        intamo.spin(reverse, speed, pct);
+        inta1.spin(reverse, speed, pct);
+        inta2.spin(reverse, speed, pct);
     }
     void unsuk(int speed){
-        intamo.spin(fwd, speed, pct);
+        inta1.spin(fwd, speed, pct);
+        inta2.spin(fwd, speed, pct);
     }
 }
