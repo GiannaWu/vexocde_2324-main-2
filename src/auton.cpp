@@ -49,20 +49,20 @@ void blue_left(){
     inta2.spin(reverse, 100, pct);
     turnToAngle(-20);
     driveAndTurn(0.70, -20, 60, 60);
-    wait(400, msec);
+    wait(750, msec);
     clamp.set(false);
-    wait(100, msec);
-    driveAndTurn(0.25, 0);
-    turnToAngle(80);
-    driveAndTurn(-0.67, 80, 80, 80); //0.9
+    // wait(150, msec);
+    driveAndTurn(0.15, 0, 0, 0, 500);
+    turnToAngle(87);
+    driveAndTurn(-0.695, 87, 80, 80); //0.9
     clamp.set(true);
-    wait(100, msec);
+    wait(200, msec);
 
     turnToAngle(-59);
     doinker.set(true);
-    driveAndTurn(1, -54);
-    turnToAngle(-90);
-    driveAndTurn(0.5, -90);
+    driveAndTurn(1.15, -59);
+    turnToAngle(-95);
+    driveAndTurn(0.5, -88);
 
     turnToAngle(-135);
     // driveAndTurn(0.75, -135);
@@ -97,70 +97,76 @@ void blue_left(){
 
 /////////////////////////////////////
 
-// void red_right(){
-// //     //robot 4 POV red left side no wall 
-// //     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
+void red_right(){
+//     //robot 4 POV red left side no wall 
+//     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
     
-//     driveAndTurn(-1.75, 0); 
+    // driveAndTurn(-1.75, 0); 
 
-//     turnToAngle(-35);
-//     driveAndTurn(-0.7, -30);
-//     clamp.set(true);
-//     wait(100, msec);
+    // turnToAngle(-35);
+    // driveAndTurn(-0.7, -30);
+    // clamp.set(true);
+    // wait(100, msec);
 
 
-//     inta1.spin(reverse, 100, pct);
-//     inta2.spin(reverse, 100, pct);
-//     turnToAngle(15);
-//     driveAndTurn(0.70, 11, 60, 60);
-//     driveAndTurn(0.02, 11, 50, 50); // can delete later
-//     wait(200, msec);
-//     clamp.set(false);
-//     driveAndTurn(0.25, 0);
-//     turnToAngle(-80);
-//     driveAndTurn(-0.8, -80, 80, 80);
-//     clamp.set(true);
-//     wait(200, msec);
+    // inta1.spin(reverse, 100, pct);
+    // inta2.spin(reverse, 100, pct);
+    // turnToAngle(15);
+    // driveAndTurn(0.70, 11, 60, 60);
+    // driveAndTurn(0.02, 11, 50, 50); // can delete later
+    // wait(200, msec);
+    // clamp.set(false);
+    // driveAndTurn(0.25, 0);
+    // turnToAngle(-80);
+    // driveAndTurn(-0.8, -80, 80, 80);
+    // clamp.set(true);
+    // wait(200, msec);
 
-//     turnToAngle(54);
-//     intakeLift.set(true);
-//     //inta1.spin(reverse, 100, pct);
-//     //inta2.spin(reverse, 100, pct);
-//     driveAndTurn(1.2, 54);
-//     intakeLift.set(false);
-//     wait(350, msec);
-//     driveAndTurn(-0.5, -54);
+    // turnToAngle(54);
+    // intakeLift.set(true);
+    // //inta1.spin(reverse, 100, pct);
+    // //inta2.spin(reverse, 100, pct);
+    // driveAndTurn(1.2, 54);
+    // intakeLift.set(false);
+    // wait(350, msec);
+    // driveAndTurn(-0.5, -54);
 
-//     turnToAngle(135);
-//     driveAndTurn(0.75, 135); 
+    // turnToAngle(135);
+    // driveAndTurn(0.75, 135); 
 
-//     ///////////////////////////////////////
+    ///////////////////////////////////////
 
-// //     //robot 4 POV red right with wallstake
+//     //robot 4 POV red right with wallstake
 
-// //         // turnToAngle(15);
-// //         // driveAndTurn(0.28, 15);
-// //         // driveAndTurn(-1, 15);
-// //         // turnToAngle(-25);
-// //         // driveAndTurn(-0.5, -25);
-// //         // clamp.set(true);
-// //         // inta1.spin(reverse, 100, pct);
-// //         // inta2.spin(reverse, 100, pct);
-// //         // turnToAngle(-125);
-// //         // driveAndTurn(1.2, -125);
-// //         // turnToAngle(90);
-// //         // clamp.set(false);
-// //         // wait(400, msec);
-// //         // turnToAngle(-33);       
-// //         // driveAndTurn(-0.8, -25);
-// //         // clamp.set(true);
-// //         // turnToAngle(30);
-// //         // // inta1.spin(reverse, 100, pct);
-// //         // // inta2.spin(reverse, 100, pct);
-// //         // driveAndTurn(2.6, 18);
-// //         // turnToAngle(-45);
-// //         // driveAndTurn(-0.4, -45);
-// }
+        intakeLift.set(true);
+        wait(200, msec);
+        driveAndTurn(0.35, 0);
+        intakeLift.set(false);
+        wait(300, msec);
+        driveAndTurn(-0.5, -30);
+
+        driveAndTurn(-0.98, -15);
+        clamp.set(true);
+        turnToAngle(-25);
+        // driveAndTurn(-0.5, -25);
+        // clamp.set(true);
+        // inta1.spin(reverse, 100, pct);
+        // inta2.spin(reverse, 100, pct);
+        // turnToAngle(-125);
+        // driveAndTurn(1.2, -125);
+        // turnToAngle(90);
+        // clamp.set(false);
+        // wait(400, msec);
+        // turnToAngle(-33);       
+        // driveAndTurn(-0.8, -25);
+        // clamp.set(true);
+        // turnToAngle(30);
+        // // inta1.spin(reverse, 100, pct);
+        // // inta2.spin(reverse, 100, pct);
+        // driveAndTurn(2.6, 18);
+        // turnToAngle(-45);
+        // driveAndTurn(-0.4, -45);
+}
 
 /////////////////////////////////////
 
