@@ -16,15 +16,15 @@ extern motor r3;
 extern motor_group rightmo;
 extern motor inta1;
 extern motor inta2;
-extern motor_group intamo;
+// extern motor_group intamo;
 extern motor pner;
 extern digital_out clamp;
-extern digital_out elevation;
 //extern digital_out hood;
 extern digital_out intakeLift;
 extern distance tim;
 extern rotation ForwardTracker;
 extern rotation SidewayTracker;
+extern digital_out doinker;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
