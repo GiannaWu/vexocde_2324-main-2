@@ -12,9 +12,9 @@ float SidewayTracker_center_distance = 1.772 * 0.3937008;
 // }
 
 
-float to_rad(float angle_deg){
-  return(angle_deg/(180.0/M_PI));
-}
+// float to_rad(float angle_deg){
+//   return(angle_deg/(180.0/M_PI));
+// }
 
 double prev_ForwardTracker_position;
 double prev_SideWayTracker_position;
