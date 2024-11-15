@@ -18,16 +18,17 @@ motor r2 = motor(PORT8, ratio6_1, 0);
 motor r3 = motor(PORT6, ratio6_1, 0);
 motor_group rightmo = motor_group(r1, r2, r3);
 inertial bob = inertial(PORT9);
-motor inta1 = motor(PORT7, ratio6_1, 0);
-motor inta2 = motor(PORT2, ratio6_1, 0);
-motor_group intamo = motor_group(inta1, inta2);
+motor inta1 = motor(PORT7, ratio6_1, 0); //left
+motor inta2 = motor(PORT2, ratio6_1, 0); //right
+// motor_group intamo = motor_group(inta1, inta2);
 //motor pner = motor(PORT13, ratio18_1, 0);
 digital_out clamp = digital_out(Brain.ThreeWirePort.A);
 //digital_out hood = digital_out(Brain.ThreeWirePort.D);
 digital_out intakeLift = digital_out(Brain.ThreeWirePort.H);
 distance tim = distance(PORT17);
-rotation ForwardTracker = rotation(PORT11, true);
+rotation ForwardTracker = rotation(PORT18, true);
 rotation SidewayTracker = rotation(PORT19, false);
+digital_out doinker = digital_out(Brain.ThreeWirePort.B); 
 //vision bakchu = vision(PORT7);
 // VEXcode generated functions
 
