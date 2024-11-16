@@ -101,38 +101,37 @@ void red_right(){
 //     //robot 4 POV red left side no wall 
 //     //chasuturn(-85, -100, -35, 900); //the ms can be smaller 
     
-    // driveAndTurn(-1.75, 0); 
+    driveAndTurn(-1.75, 0); 
 
-    // turnToAngle(-35);
-    // driveAndTurn(-0.7, -30);
-    // clamp.set(true);
-    // wait(100, msec);
+    turnToAngle(-28);
+    driveAndTurn(-0.62, -23, 60, 60);
+    clamp.set(true);
+    wait(60, msec);
 
 
-    // inta1.spin(reverse, 100, pct);
-    // inta2.spin(reverse, 100, pct);
-    // turnToAngle(15);
-    // driveAndTurn(0.70, 11, 60, 60);
+    inta1.spin(reverse, 100, pct);
+    inta2.spin(reverse, 100, pct);
+    turnToAngle(30);
+    driveAndTurn(0.76, 20, 60, 60);
     // driveAndTurn(0.02, 11, 50, 50); // can delete later
-    // wait(200, msec);
-    // clamp.set(false);
-    // driveAndTurn(0.25, 0);
-    // turnToAngle(-80);
-    // driveAndTurn(-0.8, -80, 80, 80);
-    // clamp.set(true);
-    // wait(200, msec);
+    wait(700, msec);
+    clamp.set(false);
+    driveAndTurn(0.9, 20);
 
-    // turnToAngle(54);
-    // intakeLift.set(true);
+    turnToAngle(-35);
+    driveAndTurn(-0.495, -30, 60, 60);
+    clamp.set(true);
+    wait(200, msec);
+
+    turnToAngle(35);
+    doinker.set(true);
     // //inta1.spin(reverse, 100, pct);
     // //inta2.spin(reverse, 100, pct);
-    // driveAndTurn(1.2, 54);
-    // intakeLift.set(false);
-    // wait(350, msec);
-    // driveAndTurn(-0.5, -54);
-
-    // turnToAngle(135);
-    // driveAndTurn(0.75, 135); 
+    driveAndTurn(1.1, 30);
+    turnToAngle(100);
+    turnToAngle(130);
+    driveAndTurn(0.8, 130);
+    turnToAngle(160);
 
     ///////////////////////////////////////
 
